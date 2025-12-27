@@ -24,9 +24,35 @@ Execute Django admin and create details for 10 books
 
 ## PROGRAM
 
+Models.py
 
+from django.db import models
+from django.contrib import admin
+
+class Employee(models.Model):
+    eid = models.CharField(max_length=20, help_text="Employee ID")
+    name = models.CharField(max_length=100)
+    salary = models.IntegerField()
+    age = models.IntegerField()
+    email = models.EmailField()
+
+    
+admin.py
+
+from Django.contrib import admin
+from .models import Employee,EmployeeAdmin
+admin.site.register(Employee, EmployeeAdmin)
+
+cd projectname
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py makemigrations ormapp
+python manage.py migrate ormapp
+python manage.py runserver
 
 ## OUTPUT
+<img width="1920" height="1080" alt="Screenshot_2025-12-27_21_30_12" src="https://github.com/user-attachments/assets/42269497-4fcf-4f92-85b5-a2c74ed56594" />
 
 
 
